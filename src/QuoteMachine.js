@@ -1,22 +1,40 @@
 import React from 'react';
 
+const quotes = [
+    { quote: "Mangez des pommes", author: "J.Chirac" },
+    { quote: "Nous sommes en guerre", author: "E.Macron" },
+    { quote: "Jeanne au secours !", author: "JM.Lepen" },
+    { quote: "Au revoir", author: "V.Giscard d’Estaing" },
+];
+
 class QuoteMachine extends React.Component {
+
     constructor(props) {
         super(props)
         this.state = {
-            quote: "Mangez des pommes",
-            author: "J.Chirac"
+            indice: 0
         };
+        this.handleClick = this.handleClick.bind(this);
     }
+
+    handleClick() {
+        this.setState(
+        {
+            indice: Math.floor(Math.random() * quotes.length)
+        });
+
+        console.log(this.state.indice);
+    }
+
     render() {
         return <div id="quote-box">
             <div id="text">
-                {this.state.quote}
+                {quotes[this.state.indice].quote}
             </div>
             <div id="author">
-                {this.state.author}
+                {quotes[this.state.indice].author}
             </div>
-            <button id="new-quote">Get new quote</button>
+            <button id="new-quote" onClick={this.handleClick}>Get new quote</button>
             <a id="tweet-quote" />
         </div>;
     }
