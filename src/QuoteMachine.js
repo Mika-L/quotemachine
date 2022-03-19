@@ -32,7 +32,7 @@ class QuoteMachine extends React.Component {
     }
 
     render() {
-        return <div id="quote-box">
+        return <div id="quote-box" style={{ margin: 'auto', width: '30%', textAlign: 'center' }}>
             <div id="text">
                 {quotes[this.state.indice].quote}
             </div>
