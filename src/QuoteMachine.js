@@ -10,6 +10,7 @@ class QuoteMachine extends React.Component {
                 
             </div>
             <button id="new-quote">Get new quote</button>
+            <a id="tweet-quote" />
         </div>;
       }
 }
