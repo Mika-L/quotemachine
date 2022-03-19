@@ -15,15 +15,20 @@ class QuoteMachine extends React.Component {
             indice: 0
         };
         this.handleClick = this.handleClick.bind(this);
+        this.handleTweet = this.handleTweet.bind(this);
     }
 
     handleClick() {
         this.setState(
-        {
-            indice: Math.floor(Math.random() * quotes.length)
-        });
+            {
+                indice: Math.floor(Math.random() * quotes.length)
+            });
 
         console.log(this.state.indice);
+    }
+
+
+    handleTweet() {
     }
 
     render() {
@@ -35,7 +40,7 @@ class QuoteMachine extends React.Component {
                 {quotes[this.state.indice].author}
             </div>
             <button id="new-quote" onClick={this.handleClick}>Get new quote</button>
-            <a id="tweet-quote" />
+            <a id="tweet-quote" onClick={this.handleTweet} href={"twitter.com/intent/tweet?text=" + quotes[this.state.indice].quote}>tweet it</a>
         </div>;
     }
 }
